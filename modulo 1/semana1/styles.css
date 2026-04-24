@@ -1,7 +1,36 @@
+/* ==============================================
+   VARIABLES GLOBALES EN :root (TASK 4)
+   Definimos colores y tipografía en un solo lugar
+   para no repetir valores en todo el CSS
+   ============================================== */
+:root {
+  /* Colores principales */
+  --color-fondo: #0f172a;
+  --color-fondo-claro: #1e293b;
+  --color-fondo-tarjeta: #334155;
+  --color-acento: #38bdf8;
+  --color-acento-hover: #7dd3fc;
+  --color-acento-oscuro: #0ea5e9;
+  --color-texto: white;
+  --color-texto-claro: #cbd5e1;
+  --color-texto-gris: #94a3b8;
+  --color-texto-oscuro: #64748b;
+  --color-borde: #475569;
+
+  /* Tipografía */
+  --fuente-principal: 'Poppins', sans-serif;
+
+  /* Bordes */
+  --borde-redondo: 0.75rem;
+  --borde-redondo-sm: 0.5rem;
+
+  /* Sombras */
+  --sombra-tarjeta: 0 5px 15px rgba(0, 0, 0, 0.4);
+  --sombra-imagen: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
 /* ===========================
    RESET BÁSICO
-   Quita márgenes y rellenos 
-   por defecto del navegador
    =========================== */
 * {
   margin: 0;
@@ -9,31 +38,36 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* ===========================
    ESTILOS GENERALES DEL BODY
+   Usamos rem en vez de px para
+   que el texto sea responsivo
    =========================== */
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #0f172a;
-  color: white;
+  font-family: var(--fuente-principal);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
   line-height: 1.6;
+  font-size: 1rem;
 }
 
 /* ==============================================
    HEADER CON FLEXBOX (TASK 2)
-   - display: flex para hacer contenedor flexible
-   - justify-content: space-between distribuye
-     el logo a la izquierda y nav a la derecha
-   - align-items: center centra verticalmente
+   - display: flex para alinear logo y nav
+   - justify-content: space-between los separa
+   - align-items: center los centra verticalmente
    ============================================== */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 30px;
-  background-color: #1e293b;
-  border-bottom: 2px solid #38bdf8;
-  /* flex-wrap para que en pantallas chicas se acomode */
+  padding: 1.25rem 1.875rem;
+  background-color: var(--color-fondo-claro);
+  border-bottom: 2px solid var(--color-acento);
   flex-wrap: wrap;
 }
 
@@ -44,131 +78,214 @@ body {
 
 /* ==============================================
    NAVEGACIÓN CON FLEXBOX
-   - display: flex en la lista para poner los
-     links uno al lado del otro
+   - display: flex pone los links en fila
    - gap: espacio entre cada link
-   - align-items: center para centrar verticalmente
    ============================================== */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 1.25rem;
   align-items: center;
   flex-wrap: wrap;
 }
 
 /* ===========================
-   ENLACES
+   ENLACES (estilos agrupados)
    =========================== */
 a {
-  color: #38bdf8;
+  color: var(--color-acento);
   text-decoration: none;
   transition: color 0.3s;
 }
 
-/* Efecto hover: cambia color al pasar el mouse */
 a:hover {
-  color: #7dd3fc;
+  color: var(--color-acento-hover);
 }
 
 /* Enlace de volver en mascotas.html */
 .enlace-volver {
   font-weight: 500;
-  padding: 8px 16px;
-  border: 1px solid #38bdf8;
-  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-acento);
+  border-radius: var(--borde-redondo-sm);
   transition: background-color 0.3s, color 0.3s;
 }
 
 .enlace-volver:hover {
-  background-color: #38bdf8;
-  color: #0f172a;
+  background-color: var(--color-acento);
+  color: var(--color-fondo);
+}
+
+/* ==============================================
+   BOTONES (estilos agrupados - TASK 4)
+   Todos los botones comparten estos estilos base
+   ============================================== */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background-color: var(--color-acento);
+  color: var(--color-fondo);
+  font-family: var(--fuente-principal);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--borde-redondo-sm);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  background-color: var(--color-acento-oscuro);
+  transform: translateY(-2px);
+}
+
+/* Variante de botón para cerrar */
+.btn-cerrar {
+  background-color: transparent;
+  color: var(--color-acento);
+  border: 1px solid var(--color-acento);
+  font-size: 0.85rem;
+  padding: 0.4rem 1rem;
+}
+
+.btn-cerrar:hover {
+  background-color: var(--color-acento);
+  color: var(--color-fondo);
 }
 
 /* ===========================
    SECCIÓN HERO
-   Usando flexbox para centrar
    =========================== */
 .hero {
-  /* Flexbox para centrar todo el contenido */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 80px 20px;
-  background-color: #0f172a;
+  padding: 5rem 1.25rem;
+  background-color: var(--color-fondo);
+  gap: 0.625rem;
 }
 
 .hero h2 {
   font-size: 2.2rem;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .hero p {
-  color: #94a3b8;
+  color: var(--color-texto-gris);
+  font-size: 1.1rem;
+  margin-bottom: 0.625rem;
+}
+
+/* ===========================
+   MENSAJE DE BIENVENIDA
+   Oculto por defecto, se muestra
+   con JavaScript (TASK 5)
+   =========================== */
+.mensaje-bienvenida {
+  display: none;
+  background-color: var(--color-fondo-claro);
+  border: 1px solid var(--color-acento);
+  border-radius: var(--borde-redondo);
+  padding: 1.25rem;
+  margin: 1.25rem 1.875rem;
+  text-align: center;
+  animation: aparecer 0.5s ease;
+}
+
+/* Clase para mostrar el mensaje con JS */
+.mensaje-bienvenida.visible {
+  display: block;
+}
+
+.mensaje-bienvenida p {
+  margin-bottom: 0.625rem;
   font-size: 1.1rem;
 }
 
 /* ===========================
    SECCIONES GENERALES
+   (estilos agrupados - TASK 4)
    =========================== */
 .seccion {
-  background-color: #1e293b;
-  margin: 25px 30px;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  background-color: var(--color-fondo-claro);
+  margin: 1.5rem 1.875rem;
+  padding: 1.875rem;
+  border-radius: var(--borde-redondo);
+  box-shadow: var(--sombra-tarjeta);
 }
 
 .seccion h2 {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   font-size: 1.5rem;
-  color: #38bdf8;
+  color: var(--color-acento);
 }
 
 .seccion p {
-  color: #cbd5e1;
+  color: var(--color-texto-claro);
 }
 
-/* ==============================================
-   SOBRE MÍ CON FLEXBOX
-   - flex-direction: column para apilar párrafos
-   - gap para separar los párrafos
-   ============================================== */
+/* ===========================
+   SOBRE MÍ
+   =========================== */
 .sobre-mi-contenido {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 0.9375rem;
+}
+
+/* Contenido extra oculto por defecto (TASK 5) */
+.info-extra {
+  display: none;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: var(--color-fondo-tarjeta);
+  border-radius: var(--borde-redondo-sm);
+  animation: aparecer 0.5s ease;
+}
+
+.info-extra.visible {
+  display: block;
+}
+
+#btn-mas-info {
+  margin-top: 1rem;
 }
 
 /* ==============================================
-   PROYECTOS CON CSS GRID (TASK 3)
-   - display: grid activa el grid layout
-   - grid-template-columns: repeat(3, 1fr) crea 
-     3 columnas del mismo tamaño
-   - gap: espacio entre las tarjetas
+   PROYECTOS CON CSS GRID
+   - 3 columnas en escritorio (TASK 3)
    ============================================== */
 .grid-proyectos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 1.25rem;
 }
 
-.tarjeta-proyecto {
-  background-color: #334155;
-  padding: 20px;
-  border-radius: 10px;
+/* ==============================================
+   TARJETAS (estilos agrupados - TASK 4)
+   Proyectos y mascotas comparten estilos base
+   ============================================== */
+.tarjeta-proyecto,
+.tarjeta-mascota {
+  padding: 1.25rem;
+  border-radius: var(--borde-redondo);
+  box-shadow: var(--sombra-tarjeta);
   transition: transform 0.3s;
 }
 
-/* Efecto hover en los proyectos */
-.tarjeta-proyecto:hover {
+.tarjeta-proyecto:hover,
+.tarjeta-mascota:hover {
   transform: translateY(-5px);
 }
 
+/* Estilos específicos de proyectos */
+.tarjeta-proyecto {
+  background-color: var(--color-fondo-tarjeta);
+}
+
 .tarjeta-proyecto h3 {
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .tarjeta-proyecto h3 a {
@@ -178,136 +295,119 @@ a:hover {
 
 .tarjeta-proyecto p {
   font-size: 0.9rem;
-  color: #94a3b8;
+  color: var(--color-texto-gris);
+}
+
+/* Estilos específicos de mascotas */
+.tarjeta-mascota {
+  background-color: var(--color-fondo-claro);
+  text-align: center;
+  flex-basis: 17.5rem;
+  flex-grow: 0;
+}
+
+.tarjeta-mascota h3 {
+  margin: 0.75rem 0 0.5rem;
+  font-size: 1.2rem;
+  color: var(--color-acento);
+}
+
+.tarjeta-mascota p {
+  color: var(--color-texto-gris);
+  font-size: 0.9rem;
 }
 
 /* ===========================
    FORMULARIO DE CONTACTO
-   Usando flexbox para apilar
-   los campos verticalmente
    =========================== */
 .formulario {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
+  max-width: 31.25rem;
 }
 
 .formulario input,
 .formulario textarea {
-  margin-bottom: 12px;
-  padding: 12px;
-  border: 1px solid #475569;
-  border-radius: 8px;
-  background-color: #0f172a;
-  color: white;
-  font-family: 'Poppins', sans-serif;
+  margin-bottom: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--borde-redondo-sm);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-principal);
   font-size: 0.9rem;
 }
 
 .formulario input:focus,
 .formulario textarea:focus {
   outline: none;
-  border-color: #38bdf8;
+  border-color: var(--color-acento);
 }
 
-.formulario button {
-  padding: 12px;
-  border: none;
-  background-color: #38bdf8;
-  color: #0f172a;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+/* Mensaje de confirmación del formulario (oculto) */
+.mensaje-formulario {
+  display: none;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: var(--color-fondo-tarjeta);
+  border-radius: var(--borde-redondo-sm);
+  color: #4ade80;
+  text-align: center;
+  animation: aparecer 0.5s ease;
 }
 
-.formulario button:hover {
-  background-color: #0ea5e9;
+.mensaje-formulario.visible {
+  display: block;
 }
 
 /* ==============================================
-   GALERÍA DE MASCOTAS CON FLEXBOX (TASK 4)
-   - display: flex activa flexbox
-   - flex-wrap: wrap permite que las tarjetas
-     salten a la siguiente fila si no caben
-   - justify-content: center las centra
-   - gap: espacio entre tarjetas
+   GALERÍA CON FLEXBOX
+   - flex-wrap: wrap para que salten de fila
    ============================================== */
 .galeria-flex {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 25px;
-  padding: 40px 30px;
-}
-
-.tarjeta-mascota {
-  background-color: #1e293b;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  /* flex-basis para controlar el ancho de cada tarjeta */
-  flex-basis: 280px;
-  /* No dejar que crezcan demasiado */
-  flex-grow: 0;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s;
-}
-
-.tarjeta-mascota:hover {
-  transform: translateY(-5px);
-}
-
-.tarjeta-mascota h3 {
-  margin: 12px 0 8px;
-  font-size: 1.2rem;
-  color: #38bdf8;
-}
-
-.tarjeta-mascota p {
-  color: #94a3b8;
-  font-size: 0.9rem;
+  gap: 1.5rem;
+  padding: 2.5rem 1.875rem;
 }
 
 /* ==============================================
-   MOSAICO CON CSS GRID (TASK 4)
-   - grid-template-columns: repeat(3, 1fr) crea
-     3 columnas iguales
-   - grid-area se usa para hacer que algunas
-     imágenes ocupen más espacio
-   - gap separa los elementos
+   MOSAICO CON CSS GRID
+   - 3 columnas en escritorio
    ============================================== */
 .mosaico-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-top: 20px;
+  gap: 0.9375rem;
+  margin-top: 1.25rem;
 }
 
 .mosaico-item {
-  border-radius: 12px;
+  border-radius: var(--borde-redondo);
   overflow: hidden;
 }
 
-/* Imagen grande que ocupa 2 filas */
 .item-grande {
   grid-row: span 2;
 }
 
-/* Imagen ancha que ocupa 2 columnas */
 .item-ancho {
   grid-column: span 2;
 }
 
-/* Las imágenes del mosaico se adaptan a su contenedor */
+/* ==============================================
+   IMÁGENES RESPONSIVAS (TASK 3)
+   - max-width: 100% para que no se desborden
+   - height: auto para mantener la proporción
+   ============================================== */
 .mosaico-item img {
   width: 100%;
   height: 100%;
+  max-width: 100%;
   object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border-radius: var(--borde-redondo);
+  box-shadow: var(--sombra-imagen);
   transition: transform 0.3s;
 }
 
@@ -315,79 +415,102 @@ a:hover {
   transform: scale(1.05);
 }
 
-/* ===========================
-   IMÁGENES DE TARJETAS
-   Borde redondeado y sombra
-   =========================== */
 .tarjeta-mascota img {
-  width: 220px;
-  height: 200px;
+  max-width: 100%;
+  width: 13.75rem;
+  height: 12.5rem;
   object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border-radius: var(--borde-redondo);
+  box-shadow: var(--sombra-imagen);
 }
 
 /* ===========================
    PIE DE PÁGINA
-   Usando flexbox para centrar
    =========================== */
 footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 25px;
-  color: #64748b;
+  padding: 1.5rem;
+  color: var(--color-texto-oscuro);
   font-size: 0.85rem;
-  border-top: 1px solid #1e293b;
-  margin-top: 20px;
+  border-top: 1px solid var(--color-fondo-claro);
+  margin-top: 1.25rem;
+}
+
+/* ===========================
+   ANIMACIÓN PARA ELEMENTOS
+   QUE APARECEN CON JS
+   =========================== */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ==============================================
-   RESPONSIVE
-   En pantallas chicas cambiamos las columnas
-   del grid y ajustamos el flexbox
+   MEDIA QUERIES - DISEÑO RESPONSIVO (TASK 2)
    ============================================== */
 
-/* Tablets */
+/* ---- TABLETS (pantallas medianas, hasta 768px) ---- */
 @media (max-width: 768px) {
+  /* Header en columna */
   .header {
     flex-direction: column;
-    gap: 15px;
+    gap: 0.9375rem;
     text-align: center;
   }
 
+  /* Nav centrada */
   .nav-links {
     justify-content: center;
   }
 
-  /* Grid de proyectos pasa a 2 columnas */
+  /* Proyectos a 2 columnas */
   .grid-proyectos {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* Mosaico pasa a 2 columnas */
+  /* Mosaico a 3 columnas (se mantiene) */
   .mosaico-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
+  /* Hero texto más pequeño */
   .hero h2 {
     font-size: 1.8rem;
   }
 }
 
-/* Celulares */
+/* ---- MÓVILES (pantallas pequeñas, hasta 480px) ---- */
 @media (max-width: 480px) {
-  /* Grid de proyectos pasa a 1 columna */
+  /* Nav en columna */
+  .nav-links {
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  /* Proyectos a 1 columna */
   .grid-proyectos {
     grid-template-columns: 1fr;
   }
 
-  /* Mosaico pasa a 1 columna */
-  .mosaico-grid {
-    grid-template-columns: 1fr;
+  /* Galería flexbox: tarjetas a ancho completo */
+  .tarjeta-mascota {
+    flex-basis: 100%;
   }
 
-  /* Quitar span en pantallas chicas */
+  /* Mosaico a 2 columnas */
+  .mosaico-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Quitar spans del mosaico en móvil */
   .item-grande {
     grid-row: span 1;
   }
@@ -396,11 +519,31 @@ footer {
     grid-column: span 1;
   }
 
+  /* Textos más pequeños */
   .hero h2 {
     font-size: 1.5rem;
   }
 
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .seccion h2 {
+    font-size: 1.25rem;
+  }
+
+  /* Secciones con menos margen */
+  .seccion {
+    margin: 1rem 0.9375rem;
+    padding: 1.25rem;
+  }
+
   .galeria-flex {
-    padding: 20px 15px;
+    padding: 1.25rem 0.9375rem;
+  }
+
+  /* Formulario a ancho completo */
+  .formulario {
+    max-width: 100%;
   }
 }

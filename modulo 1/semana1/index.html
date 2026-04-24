@@ -14,7 +14,7 @@
 
 <body>
 
-  <!-- HEADER con Flexbox para alinear y distribuir -->
+  <!-- HEADER con Flexbox -->
   <header class="header">
     <h1 class="logo">Jose Mauricio Rangel Nuñez</h1>
     <nav>
@@ -30,8 +30,16 @@
   <!-- SECCIÓN HERO -->
   <section class="hero">
     <h2>Construyendo ideas digitales</h2>
-    <p>Desarrollo web | Emprendimiento | Innovación</p>
+    <p id="texto-hero">Desarrollo web | Emprendimiento | Innovación</p>
+    <!-- Botón para cambiar el texto del párrafo (TASK 5) -->
+    <button class="btn" id="btn-cambiar-texto">¿Quién soy?</button>
   </section>
+
+  <!-- MENSAJE DE BIENVENIDA (oculto por defecto, se muestra con JS) -->
+  <div class="mensaje-bienvenida" id="mensaje-bienvenida">
+    <p>👋 ¡Bienvenido a mi portafolio! Gracias por visitarme.</p>
+    <button class="btn btn-cerrar" id="btn-cerrar-mensaje">Cerrar</button>
+  </div>
 
   <!-- SECCIÓN SOBRE MÍ -->
   <section id="sobre-mi" class="seccion">
@@ -49,12 +57,21 @@
         modernos y funcionales.
       </p>
     </div>
+
+    <!-- Botón para mostrar/ocultar contenido extra (TASK 5) -->
+    <button class="btn" id="btn-mas-info">Ver más sobre mí</button>
+    <div class="info-extra" id="info-extra">
+      <p>
+        Mis hobbies incluyen la programación, los videojuegos y pasar
+        tiempo con mis mascotas. También me interesa el emprendimiento
+        digital y aprender sobre nuevas tecnologías como React y Node.js.
+      </p>
+    </div>
   </section>
 
-  <!-- SECCIÓN PROYECTOS organizada con CSS Grid -->
+  <!-- SECCIÓN PROYECTOS con CSS Grid -->
   <section id="proyectos" class="seccion">
     <h2>Proyectos</h2>
-    <!-- Contenedor grid para las tarjetas de proyectos -->
     <div class="grid-proyectos">
 
       <div class="tarjeta-proyecto">
@@ -93,18 +110,25 @@
   <!-- SECCIÓN CONTACTO -->
   <section id="contacto" class="seccion">
     <h2>Contacto</h2>
-    <form class="formulario">
+    <form class="formulario" id="formulario-contacto">
       <input type="text" placeholder="Tu nombre" required>
       <input type="email" placeholder="Tu correo" required>
       <textarea placeholder="Escribe tu mensaje..." rows="5"></textarea>
-      <button type="submit">Enviar</button>
+      <button type="submit" class="btn">Enviar</button>
     </form>
+    <!-- Mensaje de confirmación oculto -->
+    <p class="mensaje-formulario" id="mensaje-formulario">
+      ✅ ¡Mensaje enviado con éxito! Te responderé pronto.
+    </p>
   </section>
 
   <!-- PIE DE PÁGINA -->
   <footer>
     <p>© 2025 Jose Mauricio Rangel Nuñez</p>
   </footer>
+
+  <!-- SCRIPT DE JAVASCRIPT (antes de cerrar body) -->
+  <script src="script.js"></script>
 
 </body>
 </html>
