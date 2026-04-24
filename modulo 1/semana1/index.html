@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio - Jose Mauricio</title>
+
+  <!-- Fuente de Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- HEADER con Flexbox para alinear y distribuir -->
+  <header class="header">
+    <h1 class="logo">Jose Mauricio Rangel Nuñez</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="mascotas.html">Mascotas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- SECCIÓN HERO -->
+  <section class="hero">
+    <h2>Construyendo ideas digitales</h2>
+    <p>Desarrollo web | Emprendimiento | Innovación</p>
+  </section>
+
+  <!-- SECCIÓN SOBRE MÍ -->
+  <section id="sobre-mi" class="seccion">
+    <h2>Sobre mí</h2>
+    <div class="sobre-mi-contenido">
+      <p>
+        Soy estudiante y emprendedor apasionado por la tecnología.
+        Me enfoco en crear soluciones prácticas, páginas web modernas
+        y proyectos con impacto real. Actualmente estoy aprendiendo
+        HTML, CSS y poco a poco JavaScript.
+      </p>
+      <p>
+        Mi objetivo es seguir creciendo como desarrollador y poder
+        ayudar a negocios a tener presencia en internet con diseños
+        modernos y funcionales.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECCIÓN PROYECTOS organizada con CSS Grid -->
+  <section id="proyectos" class="seccion">
+    <h2>Proyectos</h2>
+    <!-- Contenedor grid para las tarjetas de proyectos -->
+    <div class="grid-proyectos">
+
+      <div class="tarjeta-proyecto">
+        <h3><a href="#">Tienda Online</a></h3>
+        <p>Plataforma de ventas digital para pequeños negocios.</p>
+      </div>
+
+      <div class="tarjeta-proyecto">
+        <h3><a href="#">App de Tareas</a></h3>
+        <p>Gestión de productividad personal con lista de pendientes.</p>
+      </div>
+
+      <div class="tarjeta-proyecto">
+        <h3><a href="#">Web Empresarial</a></h3>
+        <p>Diseño moderno para un negocio local.</p>
+      </div>
+
+      <div class="tarjeta-proyecto">
+        <h3><a href="#">Blog Personal</a></h3>
+        <p>Espacio para compartir artículos sobre tecnología.</p>
+      </div>
+
+      <div class="tarjeta-proyecto">
+        <h3><a href="#">Landing Page</a></h3>
+        <p>Página de aterrizaje para campañas de marketing.</p>
+      </div>
+
+      <div class="tarjeta-proyecto">
+        <h3><a href="#">Portafolio</a></h3>
+        <p>Este mismo sitio web que estás viendo ahora.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECCIÓN CONTACTO -->
+  <section id="contacto" class="seccion">
+    <h2>Contacto</h2>
+    <form class="formulario">
+      <input type="text" placeholder="Tu nombre" required>
+      <input type="email" placeholder="Tu correo" required>
+      <textarea placeholder="Escribe tu mensaje..." rows="5"></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p>© 2025 Jose Mauricio Rangel Nuñez</p>
+  </footer>
+
+</body>
+</html>
